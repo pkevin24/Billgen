@@ -4,15 +4,22 @@ import smtplib  # python library to send emails
 
 # recipient = input("Enter Email of the Recipient:\n") #receives mail address
 def SendEmail(recipient,amt,name):
-    server = smtplib.SMTP("smtp.gmail.com" , 587)  # 587 = port number
-    server.ehlo() # check the smtp connection 
-    server.starttls()  # start the conection 
-    server.login("demo24062000@gmail.com" , "kvhebbal") 
+#     server = smtplib.SMTP("smtp.gmail.com" , 587)  # 587 = port number
+#     server.ehlo() # check the smtp connection 
+#     server.starttls()  # start the conection 
+#     server.login("demo24062000@gmail.com" , "kvhebbal") 
+#     SUBJECT = "BILL AMOUNT"
+#     amt1=str(amt)
+#     message = 'Subject: {}\n\n{}'.format(SUBJECT,"Hello "+ name+"\n\tThankyou for using our smart power extender. You will have to pay Rs "+amt1+" for these many amout of consumption.\n\tYou can pay the amout by any of the following ways. \n\tHope you use our extender again. Seeyaa")
+#     server.sendmail("demo24062000@gmail.com" , recipient , message)
+#     server.close() 
+    server = smtplib.SMTP_SSL('smtp.googlemail.com', 465)
+    server.login("demo24062000@gmail.com" , "kvhebbal")
     SUBJECT = "BILL AMOUNT"
     amt1=str(amt)
     message = 'Subject: {}\n\n{}'.format(SUBJECT,"Hello "+ name+"\n\tThankyou for using our smart power extender. You will have to pay Rs "+amt1+" for these many amout of consumption.\n\tYou can pay the amout by any of the following ways. \n\tHope you use our extender again. Seeyaa")
-    server.sendmail("demo24062000@gmail.com" , recipient , message)
-    server.close() 
+    server.sendmail('demo24062000@gmail.com', recipient, message)
+        
 
 app = Flask(__name__,template_folder='Template')
 
