@@ -44,7 +44,7 @@ def bill():
     email=request.form['Email']
     hr=request.form['Hrs']
     amt=rate*float(hr)
-    SendEmail(email,amt,name)
+#     SendEmail(email,amt,name)
     # l={'name':name,'email':email,'hr':hr}
     return render_template('billout.html',name1=name,email1=email,hr1=hr)
     
