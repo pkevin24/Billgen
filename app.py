@@ -19,6 +19,7 @@ def SendEmail(recipient,amt,name):
     amt1=str(amt)
     message = 'Subject: {}\n\n{}'.format(SUBJECT,"Hello "+ name+"\n\tThankyou for using our smart power extender. You will have to pay Rs "+amt1+" for these many amout of consumption.\n\tYou can pay the amout by any of the following ways. \n\tHope you use our extender again. Seeyaa")
     server.sendmail('demo24062000@gmail.com', recipient, message)
+    server.quit()
         
 
 app = Flask(__name__,template_folder='Template')
